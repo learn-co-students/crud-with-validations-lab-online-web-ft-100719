@@ -1,0 +1,36 @@
+<h1><%= @song.title %></h1>
+<table>
+    <tr>
+        <th>
+            Released?
+        </th>
+        <th>
+            Release Year
+        </th>
+        <th>
+            Artist
+        </th>
+        <th>
+            Genre
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <%= 'Yes' if @song.released %>
+            <%= 'No' if !@song.released %>
+        </td>
+        <td>
+            <%= "#{@song.release_year}" if @song.released %>
+            <%= "Song Not Released" if !@song.released %>
+        </td>
+        <td>
+            <%= @song.artist_name %>
+        </td>
+        <td>
+            <%= @song.genre if @song.genre %>
+            <%= "Unassigned Genre" if !@song.genre %>
+        </td>
+    </tr>
+</table>
+
+<%= link_to "Back", songs_path %> | <%= link_to "Edit", edit_song_path(@song) %> | <%= link_to "Delete", song_path(@song), method: :delete, data: { confirm: "Really?" } %>
