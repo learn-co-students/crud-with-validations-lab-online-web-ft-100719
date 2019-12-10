@@ -1,0 +1,22 @@
+<h1>All Songs</h1>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Song Title
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @songs.each do |s| %>
+        <tr>
+            <td>
+                <%= link_to s.title, song_path(s) %>
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<hr>
+<%=  link_to "Create New Song", new_song_path %>
