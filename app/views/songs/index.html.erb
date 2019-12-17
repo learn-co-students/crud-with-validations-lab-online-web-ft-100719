@@ -1,0 +1,27 @@
+
+
+<html>
+  <head>
+    <title>Title of the document</title>
+    <style>
+      th, td {
+        padding: 10px;
+        border: 1px solid #666;
+      }
+    </style>
+  </head>
+  <table style="width:80%; margin:30px auto; border-collapse:collapse;"></table>
+    <tbody>
+      
+          <% @songs.each do |s| %>
+              <tr>
+              <%= link_to s.title, song_path(s)%>
+              <%=s.release_year%>
+              <%= s.released%>
+              <%=s.genre%> 
+              <%=s.artist_name%> 
+              </tr>
+            <% end %>
+    </tbody>
+  </table> 
+</html>
