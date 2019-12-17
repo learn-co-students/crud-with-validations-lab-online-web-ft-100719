@@ -1,0 +1,12 @@
+<h1>Individual Song</h1>
+
+  <h2><%=@song.title%></h2>
+  <p>Artist: <%=@song.artist_name%></p>
+  <p>Genre: <%=@song.genre%></p>
+  <p>Release year: <%=@song.release_year%></p>
+  <p>Released? <%=@song.released%></p>
+
+  <br>
+  <%= link_to 'Edit', edit_song_path(@song) %> 
+  <br>
+  <%= link_to("Delete", song_path(@song), method: :delete) %>
