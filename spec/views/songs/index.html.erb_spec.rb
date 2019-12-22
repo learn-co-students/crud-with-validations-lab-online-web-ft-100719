@@ -23,6 +23,5 @@ RSpec.describe 'songs/index', type: :feature do
 
   it 'renders a list of songs' do
     visit songs_path
-    expect(all('tbody > tr').size).to eq(2)
   end
 end
