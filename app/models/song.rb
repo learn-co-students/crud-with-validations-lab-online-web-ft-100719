@@ -1,13 +1,17 @@
 class Song < ApplicationRecord
-    def not_released?
-        :released == "false"
-    end 
-    validates :title, presence: :true
-    validates :released, inclusion: { in: %w(true false) }
-    validates :release_year, presence: true, unless: :not_released?
-    validates :release_year, confirmation: true
-    validates :release_year_confirmation, length: { maximum: 2019 }
-    validates :artist_name, presence: :true
-    validates :genre, presence: :true
-end
 
+      validates :title, presence: true
+  validates :title, uniqueness: {
+    scope: %i[release_year artist_name],
+    message: 'cannot be repeated by the same artist in the same year'
+  }
+  validates :released, inclusion: { in: [true, false] }
+  validates :artist_name, presence: true
+
+  with_options if: :released? do |song|
+    song.validates :release_year, presence: true
+    song.validates :release_year, numericality: {
+      less_than_or_equal_to: Date.today.year
+    }
+    end
+end

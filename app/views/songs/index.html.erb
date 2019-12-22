@@ -1,13 +1,8 @@
-<% if @songs.blank? %>
-<p>There are not any songs currently in the system.</p>
-<% else %>
-<p>These are the current songs in our system</p>
-
-<ul id = "songs">
-   <% @songs.each do |c| %>
-   <li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
-   <% end %>
-</ul>
-
+<% @songs.each do |song| %>
+	<p><%= song.title %></p>
+   <p><%= song.released %></p>
+   <p><%= song.release_year %></p>
+   <p><%= song.artist_name %></p>
+   <p><%= song.genre %></p>
 <% end %>
-<p><%= link_to "Add new Song", {:action => 'new' }%></p>
+
