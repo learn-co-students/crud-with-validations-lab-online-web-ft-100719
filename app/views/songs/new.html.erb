@@ -1,0 +1,23 @@
+<h1>Add new song</h1>
+
+<%= form_tag :action => 'create' do %>
+<p><label for = "song_title">Title</label>:
+
+<%= text_field 'songs', 'title' %></p>
+<p><label for = "released">Released</label>:
+
+<%= text_field 'songs', 'released' %></p>
+<p><label for = "release_year">Release Year</label>:
+
+
+<%= number_field 'songs', 'release_year' %></p>
+<p><label for = "artist_name">Artist Name</label>:
+
+<%= text_field 'songs', 'artist_name' %></p>
+<p><label for = "genre">Genre</label>:
+
+<%= text_field 'songs', 'genre' %></p>
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'index'} %>
