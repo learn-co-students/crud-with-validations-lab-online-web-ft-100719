@@ -1,0 +1,4 @@
+<h2>Song Details</h2>
+<a href="Title: <%= @song.title %> Artist:<%= @song.artist_name %>"> Genre:<%= @song.genre %> Released?:<%= @song.released %> Release Year:<%= @song.release_year %></a>
+
+link_to "Delete", @song, :method => "delete", :confirm => "Are you sure?"
