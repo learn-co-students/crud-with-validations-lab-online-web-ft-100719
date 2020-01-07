@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Song, type: :model do
   let(:valid_attributes) do
     {
-      title: "Talisman",
-      artist_name: "Air",
-      release_year: 2007,
+      title: 'Rhythms Which I Played',
+      release_year: 2000,
       released: true,
-      genre: "Post-Rock"
+      genre: 'Normcore',
+      artist_name: 'Man With Instruments'
     }
   end
 
@@ -40,4 +40,5 @@ RSpec.describe Song, type: :model do
     Song.create!(valid_attributes)
     expect(Song.new(valid_attributes)).to be_invalid
   end
+
 end
